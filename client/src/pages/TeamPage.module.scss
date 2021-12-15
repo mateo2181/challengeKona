@@ -1,0 +1,12 @@
+.container {
+    display: flex;
+    gap: 16px;
+}
+
+.sidebar {
+    padding: 1rem 1rem 2rem;
+    background-color: rgba(0, 0, 0, 0.152);
+    h1 {
+        margin: 0 0 12px 0;
+    }
+}

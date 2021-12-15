@@ -1,0 +1,32 @@
+.container {
+    padding: 12px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.manager {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    div {
+        opacity: .7;
+        font-size: 18px;
+    }
+}
+
+.members, .secondaryManagers {
+    div {
+        opacity: .7;
+        margin-top: 8px;
+    }
+}
+h1 {
+    font-size: 28px;
+    margin: 0;
+}
+
+h2 {
+    font-size: 20px;
+    margin: 0;
+}

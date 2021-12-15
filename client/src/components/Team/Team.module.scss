@@ -1,8 +1,33 @@
+ul {
+    list-style: none;
+}
 .team {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     a {
         color: black;
         &:hover {
             color: rgb(30, 30, 186);
         }
     }
+}
+
+.arrowRight, .arrowDown {
+    height: 0; 
+    cursor: pointer;
+}
+
+.arrowRight {
+    width: 8px; 
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 8px solid black;
+}
+
+.arrowDown {
+    // width: 10px;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid black;
 }

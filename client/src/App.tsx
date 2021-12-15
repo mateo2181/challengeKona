@@ -8,7 +8,7 @@ import {
 } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import TeamsPage from './pages/TeamsPage';
-import TeamDetail from './components/TeamDetail';
+import TeamDetailPage from './pages/TeamDetailPage';
 
 const queryClient = new QueryClient();
 
@@ -31,7 +31,7 @@ function App () {
                       </div>
                     }
                   />
-                  <Route path=":teamId" element={<TeamDetail />} />
+                  <Route path=":teamId" element={<TeamDetailPage />} />
               </Route>
               <Route index element={<Navigate to="teams" />} />
             </Routes>

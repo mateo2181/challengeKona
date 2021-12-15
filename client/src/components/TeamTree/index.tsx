@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useQueryClient } from 'react-query';
 import { Team as ITeam } from '../../types';
 import Team from '../Team';
-// import styles from './TeamTree.module.scss';
+import styles from './TeamTree.module.scss';
 
 export default function TeamTree () {
   const [primaryTeams, setPrimaryTeams] = useState<ITeam[]>([]);
@@ -17,8 +17,8 @@ export default function TeamTree () {
   }, [teams]);
 
   return (
-          <>
+          <ul className={styles.list}>
               { primaryTeams.length && primaryTeams.map((team: any) => <Team key={team.id} team={team} />)}
-          </>
+          </ul>
   );
 }

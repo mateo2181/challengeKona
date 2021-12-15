@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useQueryClient } from 'react-query';
 import { Link } from 'react-router-dom';
 import { Team as ITeam } from '../../types';
@@ -24,12 +24,19 @@ function Team ({ team }: PropsTeam) {
   if (!team) return <></>;
 
   if (team.settings.consolidatedTeams?.length) {
+    const [showChildren, setShowChildren] = useState<boolean>(true);
+
     return (
             <>
-                <li className={styles.team}> <Link to={`/teams/${team.id}`}> {team.name} </Link></li>
-                <ul>
-                    {team.settings.consolidatedTeams.map((teamId: string) => (<Team key={teamId} team={getTeam(teamId)} />))}
-                </ul>
+                <li className={styles.team}>
+                  <span onClick={() => setShowChildren(prev => !prev)} className={`${showChildren ? styles.arrowDown : styles.arrowRight}`}></span>
+                  <Link to={`/teams/${team.id}`}> {team.name} </Link>
+                </li>
+                { showChildren &&
+                  <ul>
+                      {team.settings.consolidatedTeams.map((teamId: string) => (<Team key={teamId} team={getTeam(teamId)} />))}
+                  </ul>
+                }
             </>
     );
   } else {

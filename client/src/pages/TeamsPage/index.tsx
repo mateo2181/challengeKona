@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import TeamTree from '../components/TeamTree';
-import useTeams from '../hooks/useTeams';
+import TeamTree from '../../components/TeamTree';
+import useTeams from '../../hooks/useTeams';
 import styles from './TeamPage.module.scss';
 
 export default function TeamsPage () {
@@ -15,7 +15,7 @@ export default function TeamsPage () {
               <h1>Teams</h1>
               { isLoading ? <div>Loading...</div> : <TeamTree /> }
           </div>
-          <div>
+          <div className={styles.detail}>
             <Outlet />
           </div>
         </div>

@@ -4,9 +4,22 @@
 }
 
 .sidebar {
+    flex-shrink: 0;
+    min-width: 250px;
     padding: 1rem 1rem 2rem;
     background-color: rgba(0, 0, 0, 0.152);
     h1 {
         margin: 0 0 12px 0;
+    }
+}
+
+
+.detail {
+    flex-grow: 1;
+}
+
+@media(max-width: 590px) {
+    .container {
+        flex-direction: column;
     }
 }

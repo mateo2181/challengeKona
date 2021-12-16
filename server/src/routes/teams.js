@@ -26,7 +26,6 @@ router.get('/:id', (req, res) => {
         if(!team) {
             throw new Error('Team not found');
         }
-        console.log(team);
         team.manager = utils.getUserNameById(userId, teamsData);
         team.members = [];
         team.directs.forEach(id => {

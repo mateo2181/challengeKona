@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useQueryClient } from 'react-query';
 import { Link } from 'react-router-dom';
 import { Team as ITeam } from '../../types';
@@ -12,9 +12,7 @@ function Team ({ team }: PropsTeam) {
   const queryClient = useQueryClient();
   const teams = queryClient.getQueryData<ITeam[]>('teams');
 
-  useEffect(() => {
-    // console.log(team);
-  }, [team]);
+  const [showChildren, setShowChildren] = useState<boolean>(true);
 
   const getTeam = useCallback((teamId: string) => {
     return teams?.find(team => team.id === teamId);
@@ -24,8 +22,6 @@ function Team ({ team }: PropsTeam) {
   if (!team) return <></>;
 
   if (team.settings.consolidatedTeams?.length) {
-    const [showChildren, setShowChildren] = useState<boolean>(true);
-
     return (
             <>
                 <li className={styles.team}>

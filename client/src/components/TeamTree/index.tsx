@@ -4,14 +4,11 @@ import { Team as ITeam } from '../../types';
 import Team from '../Team';
 import styles from './TeamTree.module.scss';
 
-export default function TeamTree () {
+function TeamTree () {
   const [primaryTeams, setPrimaryTeams] = useState<ITeam[]>([]);
-  // const queryClient = useQueryClient();
-  // const teams = queryClient.getQueryData<ITeam[]>('teams');
   const { isLoading, data: teams, error } = useTeams();
 
   useEffect(() => {
-    console.log(teams);
     if (teams) {
       setPrimaryTeams(teams.filter((team: ITeam) => team.settings.channel_id));
     }
@@ -27,3 +24,5 @@ export default function TeamTree () {
           </ul>
   );
 }
+
+export default React.memo(TeamTree);

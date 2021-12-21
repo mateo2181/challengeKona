@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import useTeam from '../../hooks/useTeam';
 import styles from './TeamDetailPage.module.scss';
 
@@ -20,15 +20,15 @@ export default function TeamDetailPage () {
           <h1>Detail Team: {team.name}</h1>
           <div className={styles.manager}>
             <h2>MANAGER</h2>
-            <div>{team.manager?.username}</div>
+            <div><Link to={`/teams/user/${team.manager?.id}`}>{team.manager?.username}</Link></div>
           </div>
           <div className={styles.secondaryManagers}>
             <h2>SECONDARY MANAGERS</h2>
-            {team.secondary_managers?.length ? team.secondary_managers.map((manager, i) => <div key={i}> - {manager.username}</div>) : <div> This team has not secondary managers. </div>}
+            {team.secondary_managers?.length ? team.secondary_managers.map((manager, i) => <div key={i}> - <Link to={`/teams/user/${manager?.id}`}>{manager.username}</Link></div>) : <div> This team has not secondary managers. </div>}
           </div>
           <div className={styles.members}>
             <h2>MEMBERS</h2>
-            {team.members?.length ? team.members.map((member, i) => <div key={i}> - {member.username}</div>) : <div> This team has not members. </div>}
+            {team.members?.length ? team.members.map((member, i) => <div key={i}> - <Link to={`/teams/user/${member?.id}`}>{member.username}</Link></div>) : <div> This team has not members. </div>}
           </div>
         </section>
   );

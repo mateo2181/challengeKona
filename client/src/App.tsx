@@ -9,6 +9,7 @@ import {
 import { QueryClient, QueryClientProvider } from 'react-query';
 import TeamsPage from './pages/TeamsPage';
 import TeamDetailPage from './pages/TeamDetailPage';
+import UserDetailPage from './pages/UserDetailPage ';
 
 const queryClient = new QueryClient();
 
@@ -32,6 +33,7 @@ function App () {
                     }
                   />
                   <Route path=":teamId" element={<TeamDetailPage />} />
+                  <Route path="user/:userId" element={<UserDetailPage />} />
               </Route>
               <Route index element={<Navigate to="teams" />} />
             </Routes>

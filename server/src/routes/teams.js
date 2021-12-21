@@ -26,19 +26,21 @@ router.get('/:id', (req, res) => {
         if(!team) {
             throw new Error('Team not found');
         }
-        team.manager = utils.getUserNameById(userId, teamsData);
+
+        const managerUsername = utils.getUserNameById(userId, teamsData);
+        team.manager = { id: userId, username: managerUsername};
         team.members = [];
         team.directs.forEach(id => {
             const username = utils.getUserNameById(id, teamsData);
             if(username) {
-                team.members.push(username);
+                team.members.push({id, username});
             }
         });
         team.secondary_managers = [];
         team.s_manager.forEach(id => {
             const username = utils.getUserNameById(id, teamsData);
             if(username) {
-                team.secondary_managers.push(username);
+                team.secondary_managers.push({id, username});
             }
         });
         res.send({data: team});

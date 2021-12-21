@@ -6,7 +6,8 @@ interface TeamSettings {
 }
 
 interface UserName {
-    username: string
+    id: string;
+    username: string;
 }
 
 export interface Team {
